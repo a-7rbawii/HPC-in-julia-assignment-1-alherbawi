@@ -11,7 +11,7 @@ julia> collatz_length(13)
 10
 ```
 """
-function collatz_length(n)
+function collatz_length(n::Integer)
     length = 1
     while n > 1
         if n%2 == 0
@@ -39,7 +39,15 @@ julia> longest_collatz_length(10)
 
 ```
 """
-function longest_collatz_length(max_n)
-    # TODO: Implementation should go here!
-    return nothing
+function longest_collatz_length(max_n::Integer)
+    longest_n = 1
+    longest_len = 1
+    for n in 1:(max_n)
+        current_len = collatz_length(n)
+        if current_len > longest_len
+            longest_len = current_len
+            longest_n = n
+        end
+    end
+    return longest_n
 end
