@@ -12,8 +12,16 @@ julia> collatz_length(13)
 ```
 """
 function collatz_length(n)
-    # TODO: Implementation should go here!
-    return nothing
+    length = 1
+    while n > 1
+        if n%2 == 0
+            n = n/2
+        else
+            n = (3*n)+1
+        end
+        length += 1
+    end
+    return length
 end
 
 """
